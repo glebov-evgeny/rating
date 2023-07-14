@@ -1,5 +1,7 @@
 <template>
-  <footer class="s-footer">{{ getYear }}</footer>
+  <footer class="s-footer">
+    <div class="s-footer__container l-wide">{{ getYear }}. И точка.</div>
+  </footer>
 </template>
 
 <script setup>

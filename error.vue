@@ -1,31 +1,18 @@
 <template>
   <div :class="['s-layout', { 'dark-themes': isLightThemes }]">
-    <s-loader />
     <s-header @handler-change-themes="changeColorThemes" />
     <main class="s-main">
-      <s-error />
+      <div class="l-wide">
+        <h2 class="s-rating__title">404</h2>
+      </div>
     </main>
     <s-footer />
   </div>
 </template>
 
 <script setup>
-// import { useDeviceStore } from '~/store/device';
-// const store = useDeviceStore();
-
-const handleResize = () => {
-  store.updateWidth(window.innerWidth);
-};
-
 const isLightThemes = ref(false);
 const changeColorThemes = () => {
   isLightThemes.value = !isLightThemes.value;
 };
-onMounted(() => {
-  handleResize();
-
-  if (process.client) {
-    window.addEventListener('resize', handleResize);
-  }
-});
 </script>

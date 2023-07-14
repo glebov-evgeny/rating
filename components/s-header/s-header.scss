@@ -1,4 +1,52 @@
 .s-header {
   background: var(--color-main);
-  border-bottom: rem(1) solid #eee;
+  border-bottom: rem(1) solid var(--color-grey);
+  padding: var(--a-padding-x1) 0;
+  &__container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__logo{
+    font-size: rem(20);
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-right: rem(15);
+    color: var(--color-second);
+  }
+  &__logic{
+    display: flex;
+    align-items: center;
+  }
+  &__theme{
+    width: rem(25);
+    height: rem(25);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    outline: none;
+    background: transparent;
+    margin-right: rem(8);
+    &:hover{
+      svg{
+        transform: rotate(90deg);
+      }
+    }
+    svg{
+      transition: .3s;
+      path{
+        fill:var(--color-second);
+      }
+    }
+  }
+  &__login{
+    cursor: pointer;
+    width: rem(28);
+    height: rem(28);
+    border: none;
+    outline: none;
+    background: transparent;
+  }
 }

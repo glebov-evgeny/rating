@@ -1,3 +1,5 @@
 <template>
-  <main class="s-main">...</main>
+  <main class="s-main">
+    <s-rating />
+  </main>
 </template>

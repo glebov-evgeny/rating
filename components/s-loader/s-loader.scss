@@ -8,7 +8,7 @@
   align-items: center;
   min-width: 100%;
   min-height: 100vh;
-  background: #ffffff;
+  background: var(--color-white);
 }
 
 .spinner {
@@ -26,7 +26,7 @@
   display: inline-block;
   width: 60%;
   height: 60%;
-  background: #ffb700;
+  background: var(--color-orange);
   border-radius: 100%;
   animation: sk-bounce 2s infinite ease-in-out;
 }
