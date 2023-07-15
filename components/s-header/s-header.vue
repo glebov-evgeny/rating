@@ -25,6 +25,9 @@
             </defs>
           </svg>
         </button>
+        <nuxt-link to="/admin" :class="['s-header__link', { 's-header__link-active': currentUser.uid }]">
+          <img class="s-header__login-image" src="/images/icons/lk.png" />
+        </nuxt-link>
         <button v-if="!currentUser.uid" class="s-header__login" @click="checkLogin">
           <img class="s-header__login-image" src="/images/icons/login.png" />
         </button>
@@ -46,7 +49,7 @@ const userInformation = useCookie('userInformation');
 const userCorrect = ref(false);
 
 const checkLogin = () => {
-  if (!userInformation.value || currentUser.email === '') {
+  if (!userInformation.value) {
     router.push({ path: '/authorization' });
   }
 };
@@ -68,7 +71,6 @@ const getInformationFromCookie = async () => {
     currentUser.setUser(userInformation.value.email, userInformation.value.id);
     userCorrect.value = true;
   }
-  console.log(currentUser);
 };
 
 onMounted(() => {
