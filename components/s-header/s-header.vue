@@ -25,78 +25,51 @@
             </defs>
           </svg>
         </button>
-        <button class="s-header__login" @click="checkLogin">
+        <button v-if="!currentUser.uid" class="s-header__login" @click="checkLogin">
           <img class="s-header__login-image" src="/images/icons/login.png" />
+        </button>
+        <button v-else class="s-header__login" @click="loginClean">
+          <img class="s-header__login-image" src="/images/icons/logout.png" />
         </button>
       </div>
     </div>
-    <!-- <a-popup :visible="showPopup" class="s-header__popup" @close="showPopup = false">
-      <m-popup-auth @on-send="showPopup = false" />
-    </a-popup> -->
   </header>
 </template>
 
 <script setup>
-// import { useDeviceStore } from '~/store/device';
 import { useUserStore } from '~/store/user';
 const currentUser = useUserStore();
 
 const emit = defineEmits(['handler-change-themes']);
-// const store = useDeviceStore();
 const router = useRouter();
 const userInformation = useCookie('userInformation');
-
-// const showPopup = ref(false);
-// const isOpen = ref(false);
-// const userCorrect = ref(false);
+const userCorrect = ref(false);
 
 const checkLogin = () => {
-  if (!userInformation.value) {
+  if (!userInformation.value || currentUser.email === '') {
     router.push({ path: '/authorization' });
   }
 };
 
-// const toggleIsOpenField = () => (isOpen.value = !isOpen.value);
 const changeThemes = () => {
   emit('handler-change-themes');
 };
 
-// const closeMenu = () => {
-//   isOpen.value = false;
-// };
-
-// const loginPopup = () => {
-//   showPopup.value = true;
-// };
-
-// const loginClean = () => {
-//   /* удаление информации о пользователе из стора и кук, редирект на главную страницу */
-//   currentUser.$reset();
-//   userInformation.value = null;
-//   router.push({ path: '/' });
-// };
-
-const getInformationFromCookie = () => {
-  if (userInformation.value) {
-    currentUser.setUser(userInformation.value.email, userInformation.value.id);
-  }
+const loginClean = () => {
+  /* удаление информации о пользователе из стора и кук, редирект на главную страницу */
+  currentUser.$reset();
+  userInformation.value = null;
+  router.push({ path: '/' });
+  userCorrect.value = false;
 };
 
-watch(
-  () => {
-    // const htmlWrapper = document.querySelector('html');
-    // const bodyWrapper = document.querySelector('body');
-    // if (showPopup.value === true) {
-    //   // bodyOverflow();
-    //   htmlWrapper.style.overflowY = 'hidden';
-    //   bodyWrapper.style.overflowY = 'hidden';
-    // } else {
-    //   htmlWrapper.style.overflowY = 'initial';
-    //   bodyWrapper.style.overflowY = 'initial';
-    // }
-  },
-  { immediate: true },
-);
+const getInformationFromCookie = async () => {
+  if (userInformation.value) {
+    currentUser.setUser(userInformation.value.email, userInformation.value.id);
+    userCorrect.value = true;
+  }
+  console.log(currentUser);
+};
 
 onMounted(() => {
   getInformationFromCookie();

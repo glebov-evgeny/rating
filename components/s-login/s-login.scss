@@ -13,8 +13,48 @@
       font-size: rem(24);
     }
   }
-  // @include _768 {
-  //   padding: var(--a-padding-x4) 0;
-  // }
+  &__formbox{
+    max-width: rem(420);
+    margin: rem(24) auto 0;
+  }
+  &__form{
+    display: flex;
+    flex-direction: column;
+    border: rem(1) solid var(--color-grey);
+    padding: var(--a-padding-x2) var(--a-padding-x1);
+    border-radius: var(--border-radius-x1);
+    &-input{
+      border: none;
+      background: transparent;
+      width: 100%;
+      min-height: rem(40);
+      font-size: rem(16);
+      font-weight: 600;
+      color: var(--color-second);
+      margin-bottom: rem(10);
+      padding: 0 rem(8);
+    }
+    &-button{
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: rem(40);
+      border: none;
+      outline: none;
+      font-size: rem(14);
+      font-weight: 600;
+      color: var(--color-black);
+      background: var(--color-orange);
+      border-radius: var(--border-radius-x1);
+    }
+  }
+  &__information{
+    margin-top: rem(30);
+    span{
+      font-weight: 600;
+    }
+  }
 }
 /* stylelint-enable no-descending-specificity */

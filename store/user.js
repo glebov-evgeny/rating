@@ -4,8 +4,8 @@ export const useUserStore = defineStore({
   id: 'user-store',
   state: () => {
     return {
-      email: 'd',
-      uid: '',
+      email: null,
+      uid: null,
     };
   },
 
