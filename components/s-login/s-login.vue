@@ -8,7 +8,7 @@
           <input v-model="fieldsData.password" class="s-login__form-input" type="password" placeholder="Пароль" />
           <button type="submit" class="s-login__form-button">Вход</button>
         </form>
-        <p class="s-login__information">Для проверки авторизации использовать: <span>12345</span> {{ validFlag }}</p>
+        <p class="s-login__information">Для проверки авторизации использовать логин и пароль: <span>12345</span></p>
       </div>
     </div>
   </section>
