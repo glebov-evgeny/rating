@@ -21,10 +21,8 @@
             <input v-model="fieldsData.dateEnd" type="date" class="s-admin__input" />
           </div>
         </div>
-        <p>Текущие значения ПРИХОДЯЩИЕ: {{ dates }}</p>
-        <p>Текущие значения ВЫБРАННЫЕ: {{ fieldsData }}</p>
+        <button @click.prevent="sendForm">отправить</button>
       </div>
-      <button @click.prevent="sendForm">отправить</button>
     </div>
   </section>
 </template>
@@ -52,10 +50,14 @@ let fieldsData = reactive({
 async function sendForm() {
   /* Добавляю текущую дату в выбор пользователя (перезаписываю в db) */
   fieldsData.dateCurrent = new Date().toISOString().split('T')[0];
+
   if (fieldsData.dateStart === '') {
-    console.log('vvv');
+    fieldsData.dateStart = props.dates.dateStart;
   }
-  // addDate(fieldsData);
+  if (fieldsData.dateEnd === '') {
+    fieldsData.dateEnd = props.dates.dateEnd;
+  }
+  addDate(fieldsData);
 }
 </script>
 

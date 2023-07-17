@@ -10,7 +10,8 @@ import { getFirestore, collection, onSnapshot, query } from 'firebase/firestore'
 definePageMeta({
   middleware: ['auth'],
 });
-let datesFromDb = ref('');
+
+let datesFromDb = ref({});
 
 const getUserInfo = () => {
   const db = getFirestore();
