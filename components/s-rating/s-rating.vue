@@ -4,10 +4,10 @@
       <h1 class="s-rating__title">Рейтинг сотрудников коммерческих подразделений</h1>
       <div class="s-rating__top">
         <p class="s-rating__subtitle">
-          Даты: <b>{{ datesFromDb.dateStart }}</b> - <b>{{ datesFromDb.dateEnd }}</b>
+          Даты: <b>{{ dates.dateStart }}</b> - <b>{{ dates.dateEnd }}</b>
         </p>
         <p class="s-rating__update">
-          Обновлено: <b>{{ datesFromDb.dateCurrent }}</b>
+          Обновлено: <b>{{ dates.dateCurrent }}</b>
         </p>
       </div>
     </div>
@@ -15,27 +15,14 @@
 </template>
 
 <script setup>
-import { getFirestore, collection, onSnapshot, query } from 'firebase/firestore';
-
-let datesFromDb = ref('');
-
-const getUserInfo = () => {
-  const db = getFirestore();
-  const getDates = query(collection(db, 'date'));
-  onSnapshot(getDates, (querySnapshot) => {
-    const response = [];
-    querySnapshot.forEach((docitem) => {
-      response.push(docitem.data());
-    });
-    if (response.length) {
-      datesFromDb.value = response[0];
-    } else {
-      console.log('no data');
-    }
-  });
-};
-onMounted(() => {
-  getUserInfo();
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const props = defineProps({
+  dates: {
+    type: Object,
+    default() {
+      return {};
+    },
+  },
 });
 </script>
 
