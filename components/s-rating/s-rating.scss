@@ -3,18 +3,42 @@
 .s-rating {
   color: var(--color-second);
   &__title{
-    font-size: rem(18);
-    line-height: 135%;
+    font-size: rem(24);
+    line-height: 125%;
     font-weight: 600;
     text-align: center;
     color: var(--color-second);
-    margin-bottom: rem(15);
+    margin-bottom: rem(30);
     @include _768 {
-      font-size: rem(24);
+      font-size: rem(34);
+      max-width: rem(800);
+      margin: rem(45) auto;
     }
   }
-  // @include _768 {
-  //   padding: var(--a-padding-x4) 0;
-  // }
+  &__top{
+    max-width: rem(400);
+    margin: 0 auto rem(45);
+    &-row{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      &:not(:last-child){
+        margin-bottom: rem(8);
+      }
+    }
+  }
+  &__subtitle{
+    font-size: rem(16);
+    margin-right: auto;
+  }
+  &__date{
+    font-size: rem(16);
+    font-weight: 600;
+
+    &-line{
+      text-align: center;
+      width: rem(15);
+    }
+  }
 }
 /* stylelint-enable no-descending-specificity */

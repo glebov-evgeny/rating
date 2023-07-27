@@ -1,13 +1,14 @@
 <template>
   <section class="s-list">
     <div class="s-list__container l-wide">
-      <h1 class="s-list__title">Табличка:</h1>
       <ul class="s-list__box">
-        <li v-for="(item, index) in resp" :key="index" class="s-list__item">
-          <p>{{ index + 1 }}</p>
-          <p>{{ item[0] }}</p>
-          <p>{{ item[1] }}</p>
-          <p>{{ item[2] }}</p>
+        <li v-for="(item, index) in resp" :key="index" class="s-list__item" :class="`s-list__item-${index + 1}`">
+          <p class="s-list__item-number">
+            <span>{{ index + 1 }}</span>
+          </p>
+          <p class="s-list__item-name">{{ item[0] }}</p>
+          <p class="s-list__item-work">{{ item[1] }}</p>
+          <p class="s-list__item-price">{{ item[2] }}</p>
         </li>
       </ul>
     </div>

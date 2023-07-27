@@ -3,12 +3,16 @@
     <div class="s-rating__container l-wide">
       <h1 class="s-rating__title">Рейтинг сотрудников коммерческих подразделений</h1>
       <div class="s-rating__top">
-        <p class="s-rating__subtitle">
-          Даты: <b>{{ dates.dateStart }}</b> - <b>{{ dates.dateEnd }}</b>
-        </p>
-        <p class="s-rating__update">
-          Обновлено: <b>{{ dates.dateCurrent }}</b>
-        </p>
+        <div class="s-rating__top-row">
+          <p class="s-rating__subtitle">Даты:</p>
+          <p class="s-rating__date">{{ dates.dateStart }}</p>
+          <span class="s-rating__date-line">-</span>
+          <p class="s-rating__date">{{ dates.dateEnd }}</p>
+        </div>
+        <div class="s-rating__top-row">
+          <p class="s-rating__subtitle">Обновлено:</p>
+          <p class="s-rating__date">{{ dates.dateCurrent }}</p>
+        </div>
       </div>
     </div>
   </section>
