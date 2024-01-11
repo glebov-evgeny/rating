@@ -11,6 +11,7 @@
 ```
 
 ## Screenshot
+![example](https://github.com/glebov-evgeny/rating/assets/35433087/dc7a3e41-ef8c-4ce6-b91b-4c5c6612efe8)
 
 
 ## Setup
